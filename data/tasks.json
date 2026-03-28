@@ -1,0 +1,8 @@
+[
+    { "name": "Clean Kitchen",      "description": "Wipe counters, clean sink, sweep and mop floor" },
+    { "name": "Vacuum Living Room", "description": "Vacuum carpet/floors and dust surfaces" },
+    { "name": "Clean Bathrooms",    "description": "Scrub toilets, sinks, and wipe mirrors" },
+    { "name": "Take Out Trash",     "description": "Empty all bins and replace bags" },
+    { "name": "Mow the Lawn",       "description": "Mow front and back yard" },
+    { "name": "Grocery Run",        "description": "Buy shared household supplies" }
+]
