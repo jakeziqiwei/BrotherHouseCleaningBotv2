@@ -118,10 +118,8 @@ def post_checkin(webhook_url: str, state: dict, week_num: int, bot_token: str) -
         color="57F287",
     )
     for name, info in assignments.items():
-        discord_id = info.get("discord_id")
-        mention    = f"<@{discord_id}>" if discord_id else f"**{name}**"
-        task_list  = "\n".join(f"• {t}" for t in info["tasks"]) or "_No tasks this month_"
-        embed.add_embed_field(name=mention, value=task_list, inline=True)
+        task_list = "\n".join(f"• {t}" for t in info["tasks"]) or "_No tasks this month_"
+        embed.add_embed_field(name=name, value=task_list, inline=True)
 
     embed.set_footer(text=f"Week {week_num} of 4 • {month} {year}")
     webhook.add_embed(embed)

@@ -54,8 +54,6 @@ def assign_tasks(brothers: list, tasks: list, month_offset: int) -> dict[str, li
 
 def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: str, year: int) -> tuple[int, str, str]:
     """Post the monthly assignment embed. Returns (status_code, message_id, channel_id)."""
-    id_map = {b["name"]: b.get("discord_id") for b in brothers}
-
     mentions = " ".join(f"<@{b['discord_id']}>" for b in brothers if b.get("discord_id"))
 
     # ?wait=true makes Discord return the created message so we can grab its ID
@@ -70,9 +68,6 @@ def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: 
     embed.set_footer(text="Auto-assigned monthly • rotates every month")
 
     for name, tasks in assignments.items():
-        discord_id = id_map.get(name)
-        mention = f"<@{discord_id}>" if discord_id else f"**{name}**"
-
         if tasks:
             value = "\n".join(
                 f"• **{t['name']}**" + (f"\n  {t['description']}" if t.get("description") else "")
@@ -81,7 +76,7 @@ def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: 
         else:
             value = "_No tasks this month — enjoy the break!_"
 
-        embed.add_embed_field(name=mention, value=value, inline=False)
+        embed.add_embed_field(name=name, value=value, inline=False)
 
     webhook.add_embed(embed)
     response = webhook.execute()
