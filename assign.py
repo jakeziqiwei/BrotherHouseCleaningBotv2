@@ -69,10 +69,14 @@ def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: 
 
     for name, tasks in assignments.items():
         if tasks:
-            value = "\n".join(
-                f"• **{t['name']}**" + (f"\n  {t['description']}" if t.get("description") else "")
-                for t in tasks
-            )
+            parts = []
+            for t in tasks:
+                block = f"**{t['name']}**"
+                if t.get("description"):
+                    quoted = "\n".join(f"> {line}" for line in t["description"].split("\n"))
+                    block += f"\n{quoted}"
+                parts.append(block)
+            value = "\n\n".join(parts)
         else:
             value = "_No tasks this month — enjoy the break!_"
 
