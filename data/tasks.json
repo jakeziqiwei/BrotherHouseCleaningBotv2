@@ -1,8 +1,34 @@
 [
-    { "name": "Clean Kitchen",      "description": "Wipe counters, clean sink, sweep and mop floor" },
-    { "name": "Vacuum Living Room", "description": "Vacuum carpet/floors and dust surfaces" },
-    { "name": "Clean Bathrooms",    "description": "Scrub toilets, sinks, and wipe mirrors" },
-    { "name": "Take Out Trash",     "description": "Empty all bins and replace bags" },
-    { "name": "Mow the Lawn",       "description": "Mow front and back yard" },
-    { "name": "Grocery Run",        "description": "Buy shared household supplies" }
+  {
+    "name": "Stairs + 2nd Floor Bathroom",
+    "description": "Vacuum all stairs\nRemove all trash and replace trash bag\nClean the sink, mirrors, and toilet\nMop the floor\nUse brush and bleach to clean the bathtub/shower\nClean glass door"
+  },
+  {
+    "name": "Kitchen Fridge and Floor",
+    "description": "Remove all expired food from the fridge\nDry up the bottom level of the fridge\nClean the dining table and benches\nMop the floor"
+  },
+  {
+    "name": "Meeting Hall and Basement Bathroom",
+    "description": "Vacuum the meeting hall\nRemove all trash and replace trash bag\nClean the sink, mirrors, and toilet\nMop the floor\nUse brush and bleach to clean the bathtub/shower\nClean glass door"
+  },
+  {
+    "name": "House Laundry + Supply",
+    "description": "Wash and dry all common area laundry:\nBathroom hand towels\nKitchen yellow towels\nMeeting room cloth table covers\n Check if there are still toilet paper, paper towel, dishsoap, detergent, dishwasher pods. If not go out and restock at Costco"
+  },
+  {
+    "name": "Mow the Lawn",
+    "description": "Mow the front lawn"
+  },
+  {
+    "name": "Kitchen Appliances",
+    "description": "Replace the aluminum foil for the stove\nClean all small metal parts on the stove\nClean the range hood filter\nClean the microwave\nEmpty the plastic dish drying rack and clean it"
+  },
+  {
+    "name": "Clean the Library",
+    "description": "Tidy up the library and make sure all books are put away\nVacuum the floor, dust the windows, and wipe the table"
+  },
+  {
+    "name": "Clean the Dining Room",
+    "description": "Vacuum and sweep the floor\nWipe the table and tidy up the chairs"
+  }
 ]

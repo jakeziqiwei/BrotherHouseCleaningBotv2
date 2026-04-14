@@ -5,6 +5,7 @@ Assign house tasks to brothers for the current month and post to Discord.
 - Tasks are distributed round-robin across brothers.
 - The starting brother rotates each month so no one always gets the same tasks.
 - Works regardless of how many brothers or tasks there are.
+- Saves data/state.json for the weekly tracker to consume.
 
 Usage:
     python3 assign.py
@@ -18,9 +19,10 @@ from pathlib import Path
 
 from discord_webhook import DiscordEmbed, DiscordWebhook
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR      = Path(__file__).parent / "data"
 BROTHERS_FILE = DATA_DIR / "brothers.json"
 TASKS_FILE    = DATA_DIR / "tasks.json"
+STATE_FILE    = DATA_DIR / "state.json"
 
 
 def load_json(path: Path) -> list:
@@ -39,7 +41,6 @@ def assign_tasks(brothers: list, tasks: list, month_offset: int) -> dict[str, li
     Brothers with no task this month will have an empty list.
     """
     n = len(brothers)
-    # Rotate the starting index each month so assignments cycle
     start = month_offset % n
     rotated = brothers[start:] + brothers[:start]
 
@@ -51,18 +52,18 @@ def assign_tasks(brothers: list, tasks: list, month_offset: int) -> dict[str, li
     return assignments
 
 
-def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: str, year: int) -> int:
+def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: str, year: int) -> tuple[int, str, str]:
+    """Post the monthly assignment embed. Returns (status_code, message_id, channel_id)."""
     id_map = {b["name"]: b.get("discord_id") for b in brothers}
 
+    # ?wait=true makes Discord return the created message so we can grab its ID
     webhook = DiscordWebhook(
-        url=webhook_url,
+        url=webhook_url + "?wait=true",
         content=f"@here — {month} {year} house task assignments are in!",
+        rate_limit_retry=True,
     )
 
-    embed = DiscordEmbed(
-        title=f"🏠 {month} {year} House Tasks",
-        color="5865F2",
-    )
+    embed = DiscordEmbed(title=f"🏠 {month} {year} House Tasks", color="5865F2")
     embed.set_footer(text="Auto-assigned monthly • rotates every month")
 
     for name, tasks in assignments.items():
@@ -81,7 +82,38 @@ def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: 
 
     webhook.add_embed(embed)
     response = webhook.execute()
-    return response.status_code
+
+    msg = response.json()
+    return response.status_code, msg.get("id", ""), msg.get("channel_id", "")
+
+
+def save_state(assignments: dict, brothers: list, month: str, year: int, channel_id: str) -> None:
+    """Write data/state.json for the weekly tracker."""
+    id_map = {b["name"]: b.get("discord_id") for b in brothers}
+
+    state = {
+        "month": month,
+        "year": year,
+        "channel_id": channel_id,
+        "assignments": {
+            name: {
+                "discord_id": id_map.get(name),
+                "tasks": [t["name"] for t in tasks],
+            }
+            for name, tasks in assignments.items()
+        },
+        "weeks": {
+            "1": {"message_id": None, "completed": []},
+            "2": {"message_id": None, "completed": []},
+            "3": {"message_id": None, "completed": []},
+            "4": {"message_id": None, "completed": []},
+        },
+    }
+
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2)
+
+    print(f"State saved to {STATE_FILE}")
 
 
 def main() -> None:
@@ -94,14 +126,10 @@ def main() -> None:
         raise SystemExit("tasks.json is empty — add at least one task")
 
     now = datetime.now()
-    # Unique integer per month — drives the rotation
     month_offset = now.year * 12 + now.month
+    assignments  = assign_tasks(brothers, tasks, month_offset)
+    month_name   = now.strftime("%B")
 
-    assignments = assign_tasks(brothers, tasks, month_offset)
-
-    month_name = now.strftime("%B")
-
-    # Pretty-print the assignment to stdout (visible in Actions logs)
     print(f"=== {month_name} {now.year} Task Assignments ===")
     for name, tasks_assigned in assignments.items():
         task_names = ", ".join(t["name"] for t in tasks_assigned) if tasks_assigned else "(none)"
@@ -110,10 +138,12 @@ def main() -> None:
 
     webhook_url = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
     if webhook_url:
-        status = post_to_discord(webhook_url, assignments, brothers, month_name, now.year)
-        print(f"Posted to Discord — HTTP {status}")
+        status, message_id, channel_id = post_to_discord(webhook_url, assignments, brothers, month_name, now.year)
+        print(f"Posted to Discord — HTTP {status} | message_id={message_id}")
+        save_state(assignments, brothers, month_name, now.year, channel_id)
     else:
         print("DISCORD_WEBHOOK_URL not set — skipping Discord post (dry run)")
+        save_state(assignments, brothers, month_name, now.year, channel_id="")
 
 
 if __name__ == "__main__":

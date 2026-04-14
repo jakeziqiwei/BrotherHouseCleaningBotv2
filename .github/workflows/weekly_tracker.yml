@@ -1,12 +1,12 @@
-name: Monthly Task Assignment
+name: Weekly Task Tracker
 
 on:
   schedule:
-    - cron: '0 12 1 * *'  # 12:00 UTC on the 1st of every month
-  workflow_dispatch:       # allow manual trigger from the Actions tab
+    - cron: '0 12 * * 1'  # Every Monday at 12:00 UTC
+  workflow_dispatch:       # Manual trigger from Actions tab
 
 jobs:
-  assign-and-post:
+  track-and-post:
     runs-on: ubuntu-latest
     permissions:
       contents: write      # Needed to commit state.json back to the repo
@@ -23,15 +23,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Assign tasks and post to Discord
+      - name: Run weekly tracker
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python3 assign.py
+          DISCORD_BOT_TOKEN:   ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: python tracker.py
 
-      - name: Commit state.json
+      - name: Commit updated state
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/state.json
-          git diff --staged --quiet || git commit -m "chore: new month state [skip ci]"
+          git diff --staged --quiet || git commit -m "chore: update tracker state [skip ci]"
           git push

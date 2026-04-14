@@ -1,0 +1,53 @@
+{
+  "month": "April",
+  "year": 2026,
+  "channel_id": "",
+  "assignments": {
+    "Ryan Wang": {
+      "discord_id": "441050585857392641",
+      "tasks": [
+        "Stairs + 2nd Floor Bathroom",
+        "Mow the Lawn"
+      ]
+    },
+    "William Liu": {
+      "discord_id": "188308731770044416",
+      "tasks": [
+        "Kitchen Fridge and Floor",
+        "Kitchen Appliances"
+      ]
+    },
+    "Steven Sun": {
+      "discord_id": "503753353877127168",
+      "tasks": [
+        "Meeting Hall and Basement Bathroom",
+        "Clean the Library"
+      ]
+    },
+    "Jake Wei": {
+      "discord_id": "207351729606492160",
+      "tasks": [
+        "House Laundry + Supply",
+        "Clean the Dining Room"
+      ]
+    }
+  },
+  "weeks": {
+    "1": {
+      "message_id": null,
+      "completed": []
+    },
+    "2": {
+      "message_id": null,
+      "completed": []
+    },
+    "3": {
+      "message_id": null,
+      "completed": []
+    },
+    "4": {
+      "message_id": null,
+      "completed": []
+    }
+  }
+}
