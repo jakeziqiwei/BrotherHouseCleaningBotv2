@@ -100,8 +100,17 @@ def post_checkin(webhook_url: str, state: dict, week_num: int, bot_token: str) -
     year        = state["year"]
     assignments = state["assignments"]
 
+    mentions = " ".join(
+        f"<@{info['discord_id']}>" for info in assignments.values() if info.get("discord_id")
+    )
+
     # ?wait=true so Discord returns the created message object
-    webhook = DiscordWebhook(url=webhook_url + "?wait=true", rate_limit_retry=True)
+    webhook = DiscordWebhook(
+        url=webhook_url + "?wait=true",
+        content=f"{mentions}",
+        allowed_mentions={"parse": ["users"]},
+        rate_limit_retry=True,
+    )
 
     embed = DiscordEmbed(
         title=f"📋 Week {week_num} Check-in — {month} {year}",

@@ -56,10 +56,13 @@ def post_to_discord(webhook_url: str, assignments: dict, brothers: list, month: 
     """Post the monthly assignment embed. Returns (status_code, message_id, channel_id)."""
     id_map = {b["name"]: b.get("discord_id") for b in brothers}
 
+    mentions = " ".join(f"<@{b['discord_id']}>" for b in brothers if b.get("discord_id"))
+
     # ?wait=true makes Discord return the created message so we can grab its ID
     webhook = DiscordWebhook(
         url=webhook_url + "?wait=true",
-        content=f"@here — {month} {year} house task assignments are in!",
+        content=f"{mentions} — {month} {year} house task assignments are in!",
+        allowed_mentions={"parse": ["users"]},
         rate_limit_retry=True,
     )
 
