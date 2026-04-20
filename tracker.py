@@ -54,7 +54,7 @@ def save_state(state: dict) -> None:
 def _bot_request(method: str, path: str, bot_token: str) -> dict | None:
     req = urllib.request.Request(
         f"{DISCORD_API}{path}",
-        headers={"Authorization": f"Bot {bot_token}"},
+        headers={"Authorization": f"Bot {bot_token}", "User-Agent": "DiscordBot (https://github.com, 1.0)"},
         method=method,
     )
     try:
