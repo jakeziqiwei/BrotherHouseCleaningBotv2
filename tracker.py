@@ -157,8 +157,6 @@ def post_progress(webhook_url: str, state: dict, current_week: int) -> None:
 
     for name, info in assignments.items():
         discord_id = info.get("discord_id")
-        mention    = f"<@{discord_id}>" if discord_id else f"**{name}**"
-
         boxes = ""
         done  = 0
         for w in range(1, 5):
@@ -172,7 +170,7 @@ def post_progress(webhook_url: str, state: dict, current_week: int) -> None:
                 boxes += "❌"
 
         embed.add_embed_field(
-            name=mention,
+            name=name,
             value=f"{boxes}  **{done}/{current_week}** weeks done",
             inline=False,
         )
