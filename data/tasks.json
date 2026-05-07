@@ -8,8 +8,12 @@
     "description": "Remove all expired food from the fridge\nDry up the bottom level of the fridge\nClean the dining table and benches\nMop the floor"
   },
   {
-    "name": "Meeting Hall B and Basement Bathroom",
-    "description": "Vacuum the meeting hall\nRemove all trash and replace trash bag\nClean the sink, mirrors, and toilet\nMop the floor\nUse brush and bleach to clean the bathtub/shower\nClean glass door"
+    "name": "Meeting Hall Bathroom and Basement Bathroom",
+    "description": ""
+  },
+  {
+    "name": "Meeting Hall + Taking out the trash on Tuesday nights",
+    "description": "Clean the meeting hall and replace the trash abgs"
   },
   {
     "name": "House Laundry + Supply",
