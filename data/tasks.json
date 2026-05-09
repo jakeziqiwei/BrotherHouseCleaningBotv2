@@ -24,6 +24,10 @@
     "description": "Mow the front lawn"
   },
   {
+    "name": "Charge the Cameras",
+    "description": "There are 3 cameras. One in the back, one in the front, and one on the side. Please use the pin on the fridge to take them down and charge them"
+  },
+  {
     "name": "Kitchen Appliances",
     "description": "Replace the aluminum foil for the stove\nClean all small metal parts on the stove\nClean the range hood filter\nClean the microwave\nEmpty the plastic dish drying rack and clean it"
   },
