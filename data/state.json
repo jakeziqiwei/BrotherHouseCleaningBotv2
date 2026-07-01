@@ -1,66 +1,59 @@
 {
-  "month": "June",
+  "month": "July",
   "year": 2026,
   "channel_id": "1487556410538725397",
   "assignments": {
-    "Andrew Beck": {
-      "discord_id": "747467584865173526",
+    "William Liu": {
+      "discord_id": "188308731770044416",
+      "tasks": [
+        "Kitchen Fridge and Floor",
+        "Charge the Cameras"
+      ]
+    },
+    "Kyle Baisel": {
+      "discord_id": "1004854383923703828",
       "tasks": [
         "Meeting Hall Bathroom and Basement Bathroom",
         "Kitchen Appliances"
       ]
     },
-    "William Liu": {
-      "discord_id": "188308731770044416",
+    "Jake Wei": {
+      "discord_id": "207351729606492160",
       "tasks": [
         "Meeting Hall + Taking out the trash on Tuesday nights",
         "Clean the Library"
       ]
     },
-    "Steven Sun": {
-      "discord_id": "503753353877127168",
+    "Owen Wang": {
+      "discord_id": "809653731587129344",
       "tasks": [
         "House Laundry + Supply",
         "Clean the Dining Room"
       ]
     },
-    "Jake Wei": {
-      "discord_id": "207351729606492160",
+    "Andrew Beck": {
+      "discord_id": "747467584865173526",
       "tasks": [
         "Stairs + 2nd Floor Bathroom",
         "Mow the Lawn"
-      ]
-    },
-    "Owen Wang": {
-      "discord_id": "809653731587129344",
-      "tasks": [
-        "Kitchen Fridge and Floor",
-        "Charge the Cameras"
       ]
     }
   },
   "weeks": {
     "1": {
-      "message_id": "1511062757909463071",
-      "completed": [
-        "188308731770044416",
-        "809653731587129344"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "2": {
-      "message_id": "1513572232142524486",
-      "completed": [
-        "207351729606492160",
-        "747467584865173526",
-        "809653731587129344"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "3": {
-      "message_id": "1516129190095749190",
+      "message_id": null,
       "completed": []
     },
     "4": {
-      "message_id": "1518661966736916632",
+      "message_id": null,
       "completed": []
     }
   }
