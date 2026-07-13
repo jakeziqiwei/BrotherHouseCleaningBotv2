@@ -6,50 +6,51 @@
     "William Liu": {
       "discord_id": "188308731770044416",
       "tasks": [
-        "Kitchen Fridge and Floor",
-        "Charge the Cameras"
+        "Mow the Lawn"
       ]
     },
     "Kyle Baisel": {
       "discord_id": "1004854383923703828",
       "tasks": [
-        "Meeting Hall Bathroom and Basement Bathroom",
-        "Kitchen Appliances"
+        "Stairs + 2nd Floor Bathroom",
+        "Charge the Cameras"
       ]
     },
     "Jake Wei": {
       "discord_id": "207351729606492160",
       "tasks": [
-        "Meeting Hall + Taking out the trash on Tuesday nights",
-        "Clean the Library"
+        "Kitchen Fridge and Floor",
+        "Kitchen Appliances"
       ]
     },
     "Owen Wang": {
       "discord_id": "809653731587129344",
       "tasks": [
-        "House Laundry + Supply",
-        "Clean the Dining Room"
+        "Meeting Hall Bathroom and Basement Bathroom",
+        "Clean the Library"
       ]
     },
     "Andrew Beck": {
       "discord_id": "747467584865173526",
       "tasks": [
-        "Stairs + 2nd Floor Bathroom",
-        "Mow the Lawn"
+        "Meeting Hall + Taking out the trash on Tuesday nights",
+        "Clean the Dining Room"
+      ]
+    },
+    "Blaise Robinson": {
+      "discord_id": "1254828945660968992",
+      "tasks": [
+        "House Laundry + Supply"
       ]
     }
   },
   "weeks": {
     "1": {
-      "message_id": "1523714175220580473",
-      "completed": [
-        "207351729606492160",
-        "809653731587129344",
-        "1004854383923703828"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "2": {
-      "message_id": "1526235962613432413",
+      "message_id": null,
       "completed": []
     },
     "3": {
