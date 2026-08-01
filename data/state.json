@@ -1,46 +1,61 @@
 {
-  "month": "July",
+  "month": "August",
   "year": 2026,
   "channel_id": "1487556410538725397",
   "assignments": {
     "William Liu": {
       "discord_id": "188308731770044416",
       "tasks": [
-        "Mow the Lawn"
+        "Kitchen Appliances"
       ]
     },
     "Kyle Baisel": {
       "discord_id": "1004854383923703828",
       "tasks": [
-        "Stairs + 2nd Floor Bathroom",
-        "Charge the Cameras"
+        "Clean the Library"
       ]
     },
     "Jake Wei": {
       "discord_id": "207351729606492160",
       "tasks": [
-        "Kitchen Fridge and Floor",
-        "Kitchen Appliances"
+        "Stairs + 2nd Floor Bathroom",
+        "Clean the Dining Room"
       ]
     },
     "Owen Wang": {
       "discord_id": "809653731587129344",
       "tasks": [
-        "Meeting Hall Bathroom and Basement Bathroom",
-        "Clean the Library"
+        "Kitchen Fridge and Floor"
       ]
     },
     "Andrew Beck": {
       "discord_id": "747467584865173526",
       "tasks": [
-        "Meeting Hall + Taking out the trash on Tuesday nights",
-        "Clean the Dining Room"
+        "Meeting Hall Bathroom and Basement Bathroom"
       ]
     },
     "Blaise Robinson": {
       "discord_id": "1254828945660968992",
       "tasks": [
+        "Meeting Hall + Taking out the trash on Tuesday nights"
+      ]
+    },
+    "Nicky Dong": {
+      "discord_id": "536922446889091085",
+      "tasks": [
         "House Laundry + Supply"
+      ]
+    },
+    "Luke Shan": {
+      "discord_id": "1258506275541618783",
+      "tasks": [
+        "Mow the Lawn"
+      ]
+    },
+    "Josh Wang": {
+      "discord_id": "192463314104745984",
+      "tasks": [
+        "Charge the Cameras"
       ]
     }
   },
@@ -50,20 +65,15 @@
       "completed": []
     },
     "2": {
-      "message_id": "1526299960339988596",
-      "completed": [
-        "809653731587129344"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "3": {
-      "message_id": "1528765498630733844",
-      "completed": [
-        "207351729606492160",
-        "1254828945660968992"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "4": {
-      "message_id": "1531309540157423627",
+      "message_id": null,
       "completed": []
     }
   }
