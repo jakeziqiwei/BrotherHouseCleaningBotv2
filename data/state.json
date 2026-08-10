@@ -62,10 +62,12 @@
   "weeks": {
     "1": {
       "message_id": "1533847151937978430",
-      "completed": []
+      "completed": [
+        "536922446889091085"
+      ]
     },
     "2": {
-      "message_id": null,
+      "message_id": "1536361025434030161",
       "completed": []
     },
     "3": {
