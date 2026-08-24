@@ -74,10 +74,12 @@
     },
     "3": {
       "message_id": "1538891517719085067",
-      "completed": []
+      "completed": [
+        "1004854383923703828"
+      ]
     },
     "4": {
-      "message_id": null,
+      "message_id": "1541429922734809139",
       "completed": []
     }
   }
