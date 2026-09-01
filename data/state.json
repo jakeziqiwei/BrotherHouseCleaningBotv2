@@ -1,5 +1,5 @@
 {
-  "month": "August",
+  "month": "September",
   "year": 2026,
   "channel_id": "1487556410538725397",
   "assignments": {
@@ -12,24 +12,19 @@
     "Kyle Baisel": {
       "discord_id": "1004854383923703828",
       "tasks": [
+        "Stairs + 2nd Floor Bathroom",
         "Clean the Library"
       ]
     },
     "Jake Wei": {
       "discord_id": "207351729606492160",
       "tasks": [
-        "Stairs + 2nd Floor Bathroom",
+        "Kitchen Fridge and Floor",
         "Clean the Dining Room"
       ]
     },
     "Owen Wang": {
       "discord_id": "809653731587129344",
-      "tasks": [
-        "Kitchen Fridge and Floor"
-      ]
-    },
-    "Andrew Beck": {
-      "discord_id": "747467584865173526",
       "tasks": [
         "Meeting Hall Bathroom and Basement Bathroom"
       ]
@@ -61,26 +56,19 @@
   },
   "weeks": {
     "1": {
-      "message_id": "1533847151937978430",
-      "completed": [
-        "536922446889091085"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "2": {
-      "message_id": "1536361025434030161",
-      "completed": [
-        "536922446889091085"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "3": {
-      "message_id": "1538891517719085067",
-      "completed": [
-        "207351729606492160",
-        "1004854383923703828"
-      ]
+      "message_id": null,
+      "completed": []
     },
     "4": {
-      "message_id": "1541429922734809139",
+      "message_id": null,
       "completed": []
     }
   }
