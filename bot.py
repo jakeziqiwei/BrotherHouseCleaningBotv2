@@ -94,7 +94,9 @@ class BrothersBot(discord.Client):
 
         content = re.sub(r"<@!?\d+>", "", message.content).strip()
 
-        if content.lower().startswith("add"):
+        if content.lower().startswith("ping"):
+            await message.reply("pong 🏓")
+        elif content.lower().startswith("add"):
             await self._handle_add(message, content[3:].strip())
         elif content.lower().startswith("remove"):
             await self._handle_remove(message, content[6:].strip())
