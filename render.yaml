@@ -1,0 +1,13 @@
+services:
+  - type: worker
+    name: brothers-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 bot.py
+    envVars:
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_REPO
+        sync: false

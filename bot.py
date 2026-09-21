@@ -16,10 +16,25 @@ import base64
 import json
 import os
 import re
+import threading
 import urllib.error
 import urllib.request
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from pathlib import Path
 
 import discord
+
+
+def load_dotenv() -> None:
+    env_path = Path(__file__).parent / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        os.environ.setdefault(key.strip(), value.strip())
 
 GITHUB_API = "https://api.github.com"
 BROTHERS_PATH = "data/brothers.json"
@@ -149,7 +164,28 @@ class BrothersBot(discord.Client):
             await message.reply(f"Failed to update: {e}")
 
 
+class HealthHandler(BaseHTTPRequestHandler):
+    def do_GET(self) -> None:
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"ok")
+
+    def log_message(self, *args) -> None:
+        pass
+
+
+def start_health_server() -> None:
+    port = int(os.environ.get("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), HealthHandler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    print(f"Health server listening on port {port}")
+
+
 def main() -> None:
+    load_dotenv()
+    start_health_server()
+
     token = os.environ.get("DISCORD_BOT_TOKEN", "").strip()
     github_token = os.environ.get("GITHUB_TOKEN", "").strip()
     github_repo = os.environ.get("GITHUB_REPO", "").strip()
