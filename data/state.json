@@ -1,56 +1,56 @@
 {
-  "month": "October",
+  "month": "November",
   "year": 2026,
   "channel_id": "1487556410538725397",
   "assignments": {
     "William Liu": {
       "discord_id": "188308731770044416",
       "tasks": [
-        "Charge the Cameras"
+        "Mow the Lawn"
       ]
     },
     "Kyle Baisel": {
       "discord_id": "1004854383923703828",
       "tasks": [
-        "Kitchen Appliances"
+        "Charge the Cameras"
       ]
     },
     "Jake Wei": {
       "discord_id": "207351729606492160",
       "tasks": [
-        "Stairs + 2nd Floor Bathroom",
-        "Clean the Library"
+        "Kitchen Appliances"
       ]
     },
     "Blaise Robinson": {
       "discord_id": "1254828945660968992",
       "tasks": [
-        "Kitchen Fridge and Floor",
-        "Clean the Dining Room"
+        "Stairs + 2nd Floor Bathroom",
+        "Clean the Library"
       ]
     },
     "Nicky Dong": {
       "discord_id": "536922446889091085",
       "tasks": [
-        "Meeting Hall Bathroom and Basement Bathroom"
+        "Kitchen Fridge and Floor",
+        "Clean the Dining Room"
       ]
     },
     "Josh Wang": {
       "discord_id": "192463314104745984",
       "tasks": [
-        "Meeting Hall + Taking out the trash on Tuesday nights"
+        "Meeting Hall Bathroom and Basement Bathroom"
       ]
     },
     "Zhang": {
       "discord_id": "123",
       "tasks": [
-        "House Laundry + Supply"
+        "Meeting Hall + Taking out the trash on Tuesday nights"
       ]
     },
     "Rodney": {
       "discord_id": "1359221358495531209",
       "tasks": [
-        "Mow the Lawn"
+        "House Laundry + Supply"
       ]
     }
   },
@@ -60,7 +60,7 @@
       "completed": []
     },
     "2": {
-      "message_id": "1559309839866269760",
+      "message_id": null,
       "completed": []
     },
     "3": {
@@ -68,7 +68,7 @@
       "completed": []
     },
     "4": {
-      "message_id": "1564343670893969500",
+      "message_id": null,
       "completed": []
     }
   }
